@@ -30,7 +30,7 @@ st.set_page_config(
 # ── Sidebar: API key ──────────────────────────────────────────────────────────
 with st.sidebar:
     st.title("🏥 MediBot")
-    st.caption("Medical AI Assistant · Hybrid RAG · LangGraph")
+    st.caption("Medical AI Assistant")
     st.divider()
 
     groq_key = st.text_input(
@@ -42,16 +42,6 @@ with st.sidebar:
     if groq_key:
         os.environ["GROQ_API_KEY"] = groq_key
 
-    st.divider()
-    st.markdown("**Tools available**")
-    st.markdown(
-        "- 🔀 Hybrid RAG (FAISS + BM25)\n"
-        "- 🔍 FAISS Semantic RAG\n"
-        "- 🔑 BM25 Keyword RAG\n"
-        "- 🌐 Live Wikipedia\n"
-        "- 🩺 Symptom Checker\n"
-        "- 💊 Drug Information"
-    )
     st.divider()
     if st.button("🗑️ Clear conversation"):
         st.session_state.messages = []
@@ -348,23 +338,6 @@ if not st.session_state.kb_ready:
         status.update(label="✅ Knowledge base ready!", state="complete")
 else:
     tools = st.session_state.tools
-
-# Example prompts
-if not st.session_state.messages:
-    st.markdown("**Try asking:**")
-    cols = st.columns(3)
-    examples = [
-        "What is diabetes mellitus and how is it treated?",
-        "I have fever, cough and fatigue — what could it be?",
-        "What are the side effects of ibuprofen?",
-        "Tell me about Kawasaki disease in children.",
-        "How does the immune system work?",
-        "What is the dosage of metformin?",
-    ]
-    for i, ex in enumerate(examples):
-        if cols[i % 3].button(ex, key=f"ex_{i}"):
-            st.session_state.pending_question = ex
-            st.rerun()
 
 # Render chat history
 for msg in st.session_state.messages:
