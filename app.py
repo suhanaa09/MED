@@ -234,14 +234,6 @@ mode_badge = (
 )
 st.markdown(mode_badge, unsafe_allow_html=True)
 
-if not st.session_state.messages:
-    st.markdown("""
-    <div style="background:#161b27;border:1px solid #1e2330;border-radius:12px;padding:24px;margin:20px 0;">
-        <h3 style="color:#a78bfa;font-family:'Space Mono',monospace;margin-top:0;"></h3>
-        <p style="color:#64748b;font-size:13px;margin-bottom:0;">
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
 
 # Render chat history
 for msg in st.session_state.messages:
