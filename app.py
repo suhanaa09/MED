@@ -67,11 +67,13 @@ h1, h2, h3 { font-family: 'Space Mono', monospace !important; color: #a78bfa !im
 hr { border-color: #1e2330 !important; }
 .stAlert { border-radius: 8px !important; }
 
-/* ── Hide Streamlit's built-in empty-chat "Getting Started" placeholder ── */
+/* ── Hide Streamlit's built-in empty-chat placeholder (card + wrapper) ── */
 [data-testid="stChatMessageAvatarUser"] { display: none !important; }
-div[class*="stChatFloatingInputContainer"] ~ div { display: none !important; }
+[data-testid="stChatMessageContainer"] { display: none !important; }
 .stChatMessage:has(div[data-testid="stMarkdownContainer"] h1) { display: none !important; }
 section.main [data-testid="stVerticalBlock"] > div:has(h1 + ol) { display: none !important; }
+section.main .block-container > div > div > div > div:empty { display: none !important; }
+section.main .block-container > div > div > div > div:not(:has(*:not(style))) { display: none !important; }
 </style>
 """, unsafe_allow_html=True)
 
