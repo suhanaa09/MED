@@ -222,22 +222,15 @@ has_web = st.session_state.rag and st.session_state.rag.live_search
 mode_badge = (
     '<span class="badge-web">🌐 Live Web Search ON</span>'
     if has_web else
-    '<span class="badge-warn">⚠ No web search — add Tavily key for real-time answers</span>'
+    '<span class="badge-warn"></span>'
 )
 st.markdown(mode_badge, unsafe_allow_html=True)
 
 if not st.session_state.messages:
     st.markdown("""
     <div style="background:#161b27;border:1px solid #1e2330;border-radius:12px;padding:24px;margin:20px 0;">
-        <h3 style="color:#a78bfa;font-family:'Space Mono',monospace;margin-top:0;">🚀 Getting Started</h3>
-        <ol style="color:#94a3b8;line-height:2.2;">
-            <li>Add your <b style="color:#e2e8f0;">Groq API key</b> in the sidebar</li>
-            <li>Add a <b style="color:#60a5fa;">Tavily API key</b> for <b>live web search</b> (no knowledge cutoff!)</li>
-            <li>Optionally scrape a <b style="color:#e2e8f0;">URL</b> or add <b style="color:#e2e8f0;">text</b> as a knowledge base</li>
-            <li><b style="color:#34d399;">Ask anything</b> — current events, news, documents, anything!</li>
-        </ol>
+        <h3 style="color:#a78bfa;font-family:'Space Mono',monospace;margin-top:0;"></h3>
         <p style="color:#64748b;font-size:13px;margin-bottom:0;">
-            Priority: FAISS indexed docs → Live web search → LLM general knowledge
         </p>
     </div>
     """, unsafe_allow_html=True)
