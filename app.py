@@ -3,7 +3,7 @@ import os
 from rag_engine import RAGEngine
 
 st.set_page_config(
-    page_title="RAG Chatbot",
+    page_title="AI Chatbot",
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded",
